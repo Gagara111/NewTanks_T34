@@ -1,0 +1,22 @@
+﻿@using NewTanks.Models.Enums
+@model NewTanks.Models.Enums.CellTile
+
+@switch (Model)
+{
+    case CellTile.Brick:
+        <div class="B"></div>
+        break;
+    case CellTile.Empty:
+        <div class="E"></div>
+        break;
+    case CellTile.FriendlyBase:
+        <div class="FB"></div>
+        break;
+    case CellTile.EnemyBase:
+        <div class="EB"></div>
+        break;
+    case CellTile.BadRock:
+        <div class="BR"></div>
+        break;
+}
+

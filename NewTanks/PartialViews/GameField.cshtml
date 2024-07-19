@@ -1,0 +1,19 @@
+﻿@model NewTanks.Models.GameFieldModel
+
+    <div class="GameFild">
+        @{
+            for (int row = 0; row < Model.FieldHeight; row++)
+
+            {
+                Html.Raw(@"<div class=""GamefieldRow"">");
+
+
+            for (int column = 0; column< Model.FieldWidth; column++)
+            {
+           await Html.RenderPartialAsync("GameFieldCell",Model.Map[row][column]);
+            }
+            @Html.Raw("</div>");
+        }
+    }
+    </div>
+

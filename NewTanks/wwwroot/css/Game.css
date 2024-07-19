@@ -1,0 +1,46 @@
+﻿GameField{
+    align-items:center;
+ }
+
+.GameField .GameFieldRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .GameField .GameFieldRow div {
+        --cell-size: 5vmin;
+        width: var(--cell-size);
+        height: var(--cell-size);
+    }
+
+    .EmptyCell{
+        background-color:#383838;
+    }
+
+.Brick.EmptyCell {
+    background-image: url("assets/textures/map.png");
+    background-size: auto 100%;
+    background-position-x: calc(var(--cell-size)* -1);
+}
+
+.GameFightField{
+    z-index: 1;
+    position:relative;
+}
+
+.GameContainer{
+    display:grid
+    grid-template:1fr/1fr
+}
+
+.GameButtons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+    width: 90vw;
+}

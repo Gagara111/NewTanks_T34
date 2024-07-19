@@ -1,0 +1,22 @@
+﻿@model GameModel
+
+@{
+
+    ViewData["Title"] = "Game";
+
+}
+
+@section HeadResources
+    {
+    <link rel="stylesheet" href="/css/Game.css" />
+    }
+
+<div class="text-center"> // для создания поля используются частичные виды
+    @{ await Html.RenderPartialAsync("GameField", Model.GameFieldModel);} 
+    @{ await Html.RenderPartialAsync("GameFightField", Model.GameFightFieldModel);}
+
+    <div class="GameBatton">
+    <button id="NewGameBatton" type="button" > New Game </button>
+
+    </div>
+</div>
