@@ -1,6 +1,10 @@
 ﻿GameField{
+    display:flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    justify-content: center;
     align-items:center;
- }
+     }
 
 .GameField .GameFieldRow {
     display: flex;
@@ -8,6 +12,7 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    background-color: #383838;
     }
 
     .GameField .GameFieldRow div {
@@ -20,21 +25,50 @@
         background-color:#383838;
     }
 
-.Brick.EmptyCell {
+.BrickCell
+{
+    background-image: url("assets/textures/map.png");
+    background-size: auto 100%;
+}
+
+    .BadRockCell
+{
     background-image: url("assets/textures/map.png");
     background-size: auto 100%;
     background-position-x: calc(var(--cell-size)* -1);
 }
 
-.GameFightField{
-    z-index: 1;
-    position:relative;
+.FriendlyBaseCell {
+    background-image: url("assets/textures/map.png");
+    background-size: auto 100%;
+    background-position-x: calc(var(--cell-size)* -5);
 }
+
+.EnemyBaseCell {
+    background-image: url("assets/textures/map.png");
+    background-size: auto 100%;
+    background-position-x: calc(var(--cell-size)* -5);
+    offset-rotate: 180deg;
+}
+
+
+.GameFightField {
+    z-index: 1;
+}
+
+
 
 .GameContainer{
     display:grid
-    grid-template:1fr/1fr
+    grid-template:1fr/1fr;
+    place-items: center;
 }
+.GameContainer>div {
+    grid-column: 1/1;
+    grid-row: 1/1;
+}
+
+
 
 .GameButtons {
     display: flex;

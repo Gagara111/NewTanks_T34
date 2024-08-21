@@ -2,20 +2,21 @@
 using NewTanks.Game.Interfaces;
 using NewTanks.Models;
 
-namespace NewTanks.Controllers
-{
-    public class ApiController
-    {
-    }
-}
-public class ApiController(IProfile profile, IGameManager _gameManager );
+namespace NewTanks.Controllers;
 
-public IActionResult Login([FromForm]string login, [FromForm] string password)   // с этого места виден экран преподавателя!!!!!!!!!!!!!!!!!
+
+[ApiController]
+public class ApiController(IProfile _profile, IGameManager _gameManager ) : Controller
+{
+    [HttpPost]
+    [Route(nameof(Login))]
+public IActionResult Login([FromForm]string login, [FromForm] string password) 
 {
     if (_profile.ValidateProfile(login, password))
 
     {
-        return new RedirectToActionResult(login"Lobby", "Game", null);
+        return new RedirectToActionResult(
+            "Lobby" , "Game", null);
     }
 
     return new JsonResult("Failure");
@@ -35,6 +36,5 @@ public IActionResult Login([FromForm]string login, [FromForm] string password)  
 
      }
 }
-
 
 

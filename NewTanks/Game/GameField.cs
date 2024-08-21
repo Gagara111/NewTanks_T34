@@ -9,9 +9,9 @@ namespace NewTanks.Models
         public int FieldHeight => 15;
         public int FieldWidth => 15;
 
-        public CellTile[][] Map { get; private set; }
+        public GameCellTile[][] Map { get; private set; }
 
-        public GameField(IGameTanks game)
+        public GameField()
         {
             Map = InitializeMap();
             GenerateMap();
@@ -23,8 +23,8 @@ namespace NewTanks.Models
             GenerateBrickCells(30);
             GenerateBadRock();
 
-            Map[^1][FieldWidth / 2] = CellTile.FriendlyBase;
-            Map[0][FieldWidth / 2] = CellTile.EnemyBase;
+            Map[^1][FieldWidth / 2] = GameCellTile.FriendlyBase;
+            Map[0][FieldWidth / 2] = GameCellTile.EnemyBase;
         }
 
         private void GenerateBadRock()
@@ -33,7 +33,7 @@ namespace NewTanks.Models
             {
                 for (int column = 2; column < FieldWidth - 2; column += 2)
                 {
-                    Map[row][column] = CellTile.BadRock;
+                    Map[row][column] = GameCellTile.BadRock;
                 }
             }
         }
@@ -50,7 +50,7 @@ namespace NewTanks.Models
                     if (randomValue <= fillPercent)
                     {
 
-                        Map[row][column] = CellTile.Brick;
+                        Map[row][column] = GameCellTile.Brick;
 
 
                     }
@@ -58,14 +58,14 @@ namespace NewTanks.Models
             }
 
         }
-        private CellTile[][] InitializeMap()
+        private GameCellTile[][] InitializeMap()
         {
-            CellTile[][] map = new CellTile[FieldHeight][];
+            GameCellTile[][] map = new GameCellTile[FieldHeight][];
 
             for (int counter = 0; counter < FieldHeight; counter++)
             {
-                map[counter] = new CellTile[FieldWidth];
-                Array.Fill(map[counter], CellTile.Empty);
+                map[counter] = new GameCellTile[FieldWidth];
+                Array.Fill(map[counter], GameCellTile.Empty);
             }
             return map;
         }

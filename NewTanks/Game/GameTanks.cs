@@ -13,7 +13,7 @@ namespace NewTanks.Game
 
         public void StartGame()
         {
-            throw new NotImplementedException();
+            GameField = new GameField();
         }
     }
 }
