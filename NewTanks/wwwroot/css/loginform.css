@@ -1,4 +1,8 @@
-html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+container html,
+container body * {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
 
 body {
   background:
@@ -69,7 +73,7 @@ body {
   opacity: 0;
 }
 
-li {
+container li {
   padding-left: 10px;
   font-size: 18px;
   display: inline;

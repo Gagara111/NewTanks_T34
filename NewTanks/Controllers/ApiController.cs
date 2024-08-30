@@ -35,6 +35,54 @@ public IActionResult Login([FromForm]string login, [FromForm] string password)
     return PartialView("GameField", gameModel.GameFieldModel);
 
      }
+    public void Right()
+    {
+
+    }
+
+    public void Up()
+    {
+
+    }
+    public void Down()
+    {
+
+    }
+    public void Left()
+    {
+
+    }
+
+        public class DirectionController : ControllerBase
+    {
+        [HttpPost("Left")]
+        public IActionResult Left()
+        {
+            // Логика для движения влево
+            return Ok("Moved Left");
+        }
+
+        [HttpPost("Right")]
+        public IActionResult Right()
+        {
+            // Логика для движения вправо
+            return Ok("Moved Right");
+        }
+
+        [HttpPost("Up")]
+        public IActionResult Up()
+        {
+            // Логика для движения вверх
+            return Ok("Moved Up");
+        }
+
+        [HttpPost("Down")]
+        public IActionResult Down()
+        {
+            // Логика для движения вниз
+            return Ok("Moved Down");
+        }
+    }
 }
 
 
